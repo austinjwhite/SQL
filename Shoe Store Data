@@ -1,0 +1,26 @@
+--Create a table listing types of shoes and their prices
+
+CREATE TABLE shoestore(id INTEGER PRIMARY KEY, colorway TEXT, size INTEGER, price INTEGER, quantity_sold INTEGER);
+
+INSERT INTO shoestore VALUES(1, "Herringbone", 8, 200, 13);
+INSERT INTO shoestore VALUES(2, "Herringbone", 9, 200, 18);
+INSERT INTO shoestore VALUES(3, "Herringbone", 10, 200, 23);
+INSERT INTO shoestore VALUES(4, "Herringbone", 12, 200, 17);
+INSERT INTO shoestore VALUES(5, "Herringbone", 13, 200, 12);
+
+
+INSERT INTO shoestore VALUES(6, "Black", 8, 150, 14);
+INSERT INTO shoestore VALUES(7, "Black", 9, 150, 20);
+INSERT INTO shoestore VALUES(8, "Black", 10, 150, 28);
+INSERT INTO shoestore VALUES(9, "Black", 12, 150, 22);
+INSERT INTO shoestore VALUES(10, "Black", 13, 150, 9);
+
+INSERT INTO shoestore VALUES(11, "White", 8, 140, 12);
+INSERT INTO shoestore VALUES(12, "White", 9, 140, 21);
+INSERT INTO shoestore VALUES(13, "White", 10, 140, 33);
+INSERT INTO shoestore VALUES(14, "White", 12, 140, 25);
+INSERT INTO shoestore VALUES(15, "White", 13, 140, 4);
+
+--lists the shoes sorted by shoe size, shows their quantity sold and the total dollar amount made from each size
+
+SELECT size, SUM(quantity_sold), SUM(quantity_sold*price) FROM shoestore GROUP BY size;
